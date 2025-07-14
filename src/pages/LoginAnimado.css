@@ -1,0 +1,95 @@
+/* Fondo animado */
+.login-bg-animado {
+  min-height: 100vh;
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  top: 0;
+  /* z-index: -1;  <-- quita o pon z-index: 0 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #4F8FFF 0%, #5fffd2 100%);
+  animation: bgMove 10s ease-in-out infinite alternate;
+  z-index: 0;
+}
+@keyframes bgMove {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Card animada: fade-in + slide up */
+.login-card-animado {
+  max-width: 380px;
+  width: 100%;
+  border-radius: 18px;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 1.1s cubic-bezier(.18,0,.43,1.11) 0.1s forwards;
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Avatar animado */
+.login-avatar {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  background: rgba(79,143,255,0.13);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: #4F8FFF;
+  animation: pulseAvatar 1.5s infinite alternate;
+}
+@keyframes pulseAvatar {
+  from { box-shadow: 0 0 0 0 rgba(79,143,255,0.21); }
+  to   { box-shadow: 0 0 12px 10px rgba(79,143,255,0.07); }
+}
+
+/* Botón animado */
+.login-btn-animado {
+  font-weight: 600;
+  font-size: 18px;
+  background: linear-gradient(90deg,#4F8FFF,#30E3CA);
+  border: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.login-btn-animado:active,
+.login-btn-animado:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #4F8FFF33;
+}
+.login-btn-animado:hover:enabled {
+  transform: scale(1.04) translateY(-1px);
+  box-shadow: 0 6px 24px -7px #4F8FFF44;
+  background: linear-gradient(90deg,#30E3CA,#4F8FFF);
+}
+
+/* Responsive fix */
+@media (max-width: 600px) {
+  .login-card-animado {
+    max-width: 98vw;
+    padding: 18px;
+  }
+}
+
+.card-menu {
+  border-radius: 18px;
+  transition: transform 0.18s cubic-bezier(.4,2,.9,1), box-shadow 0.18s;
+}
+.card-menu:hover {
+  transform: translateY(-7px) scale(1.04);
+  box-shadow: 0 8px 28px -8px #00e8ff44, 0 2px 8px -1px #0002;
+  cursor: pointer;
+}
