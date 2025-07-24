@@ -5,9 +5,10 @@ import "./Tienda.css";
 
 export default function TiendaPage() {
   const [productos, setProductos] = useState([]);
+  console.log(productos)
 
   useEffect(() => {
-    fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz")
+    fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz/productos")
       .then((res) => res.json())
       .then((data) => setProductos(data))
       .catch((err) => console.error("Error al cargar productos:", err));
