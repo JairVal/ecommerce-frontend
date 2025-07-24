@@ -1,0 +1,139 @@
+.tienda-footer {
+  background: transparent;
+  padding: 32px 0 18px 0;
+  color: #393768;
+  text-align: center;
+  margin-top: auto;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.newsletter-section {
+  background: #fff;
+  border-radius: 20px;
+  padding: 22px 32px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 22px rgba(135, 88, 255, 0.09);
+}
+.newsletter-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #393768;
+}
+.newsletter-section h3 span {
+  color: #8758ff;
+  font-weight: 800;
+}
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+.newsletter-form input[type="email"] {
+  border: 1px solid #b8a3ff;
+  border-radius: 18px;
+  padding: 8px 18px;
+  font-size: 1.06rem;
+  outline: none;
+}
+.newsletter-form button {
+  background: linear-gradient(90deg, #8758ff 0%, #ff7cc3 100%);
+  color: #fff;
+  border: none;
+  border-radius: 18px;
+  padding: 8px 24px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.newsletter-form button:hover {
+  background: linear-gradient(90deg, #ff7cc3 0%, #8758ff 100%);
+}
+
+.footer-info {
+  display: flex;
+  justify-content: center;
+  gap: 38px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.footer-info div {
+  min-width: 170px;
+  text-align: left;
+}
+.footer-info h4 {
+  font-size: 1.07rem;
+  margin-bottom: 8px;
+  color: #8758ff;
+  font-weight: 800;
+}
+.footer-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-info li a {
+  color: #393768;
+  text-decoration: none;
+  font-size: 1.01rem;
+  transition: color 0.15s;
+}
+.footer-info li a:hover {
+  color: #ff7cc3;
+}
+
+.footer-payments img {
+  height: 28px;
+  margin-right: 7px;
+  vertical-align: middle;
+  filter: drop-shadow(0 1px 4px rgba(135,88,255,0.07));
+}
+
+.footer-content {
+  margin-top: 8px;
+}
+.footer-legal {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #a59ae5;
+}
+.footer-legal img {
+  height: 22px;
+  margin: 0 6px;
+  vertical-align: middle;
+}
+
+/* Redes */
+.redes {
+  margin-top: 10px;
+}
+.redes i {
+  font-size: 2rem;
+  margin: 0 16px;
+  cursor: pointer;
+  color: #a798ff;
+  transition: color 0.2s, transform 0.16s;
+}
+.redes i:hover {
+  color: #ff7cc3;
+  transform: scale(1.14);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .footer-info {
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-info div {
+    min-width: 120px;
+    text-align: center;
+  }
+  .newsletter-section {
+    padding: 18px 6vw;
+  }
+}

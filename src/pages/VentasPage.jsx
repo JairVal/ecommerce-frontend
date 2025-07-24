@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-import { getUserIdFromToken } from "../utils/jwt"; // Corrige el path según tu proyecto
+import { getUserIdFromToken } from "../utils/jwt";
 import "./LoginAnimado.css";
 
 const initialDetalle = { id_producto: "", cantidad: 1, subtotal: 0 };
@@ -14,15 +14,15 @@ export default function VentasPage() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:4000/ventas")
+    fetch("http://localhost:3104/ventas")
       .then(res => res.json())
       .then(data => setVentas(data));
 
-    fetch("http://localhost:4000/clientes")
+    fetch("http://localhost:3104/clientes")
       .then(res => res.json())
       .then(data => setClientes(data));
 
-    fetch("http://localhost:4000/productos")
+    fetch("http://localhost:3104/productos")
       .then(res => res.json())
       .then(data => setProductos(data));
   }, []);
@@ -84,10 +84,8 @@ export default function VentasPage() {
         }))
       };
 
-      // Opcional: imprime el body en consola para verificar
-      // console.log("VENTA A ENVIAR:", ventaData);
 
-      const res = await fetch("http://localhost:4000/ventas", {
+      const res = await fetch("http://localhost:3104/ventas", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(ventaData)
@@ -101,7 +99,7 @@ export default function VentasPage() {
       });
       setIdCliente("");
       setDetalle([{ ...initialDetalle }]);
-      fetch("http://localhost:4000/ventas")
+      fetch("http://localhost:3104/ventas")
         .then(res => res.json())
         .then(data => setVentas(data));
     } catch (err) {
@@ -129,7 +127,7 @@ export default function VentasPage() {
     });
     if (!confirm.isConfirmed) return;
     try {
-      const res = await fetch(`http://localhost:4000/ventas/${id}`, { method: "DELETE" });
+      const res = await fetch(`http://localhost:3104/ventas/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error("No se pudo eliminar la venta");
       Swal.fire({
         icon: "success",

@@ -17,7 +17,7 @@ export default function ClientesPage() {
 
   // Cargar clientes
   const cargarClientes = () => {
-    fetch("http://localhost:4000/clientes")
+    fetch("http://localhost:3104/clientes")
       .then(res => res.json())
       .then(data => setClientes(data));
   };
@@ -45,7 +45,7 @@ export default function ClientesPage() {
     }
     try {
       const res = await fetch(
-        "http://localhost:4000/clientes" + (editando ? `/${form.id}` : ""),
+        `http://localhost:3104/clientes` + (editando && form.id ? `/${form.id}` : ""),
         {
           method: editando ? "PATCH" : "POST",
           headers: { "Content-Type": "application/json" },
@@ -73,7 +73,13 @@ export default function ClientesPage() {
 
   // Editar cliente
   const handleEditar = cliente => {
-    setForm(cliente);
+    setForm({
+      id: cliente._id,  // Guardamos el _id al editar
+      nombre: cliente.nombre,
+      apellido: cliente.apellido,
+      email: cliente.email,
+      telefono: cliente.telefono,
+    });
     setEditando(true);
   };
 
@@ -92,7 +98,7 @@ export default function ClientesPage() {
     if (!confirm.isConfirmed) return;
 
     try {
-      const res = await fetch(`http://localhost:4000/clientes/${id}`, { method: "DELETE" });
+      const res = await fetch(`http://localhost:3104/clientes/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error("Error al eliminar cliente");
       Swal.fire({
         icon: "success",
@@ -136,6 +142,7 @@ export default function ClientesPage() {
             Gestión de clientes registrados en el sistema.
           </p>
         </div>
+
         {/* FORMULARIO */}
         <form onSubmit={handleSubmit} className="mb-4 border p-3 rounded shadow-sm bg-light">
           <h5 className="mb-3">{editando ? "Editar cliente" : "Crear cliente"}</h5>
@@ -193,6 +200,7 @@ export default function ClientesPage() {
             )}
           </div>
         </form>
+
         {/* TABLA */}
         <div className="table-responsive">
           <table className="table table-bordered align-middle bg-white">
@@ -215,17 +223,23 @@ export default function ClientesPage() {
                 </tr>
               ) : (
                 clientes.map((c) => (
-                  <tr key={c.id}>
-                    <td>{c.id}</td>
+                  <tr key={c._id}>
+                    <td>{c._id}</td>
                     <td>{c.nombre}</td>
                     <td>{c.apellido}</td>
                     <td>{c.email}</td>
                     <td>{c.telefono}</td>
                     <td>
-                      <button className="btn btn-sm btn-info me-2" onClick={() => handleEditar(c)}>
+                      <button
+                        className="btn btn-sm btn-info me-2"
+                        onClick={() => handleEditar(c)}
+                      >
                         Editar
                       </button>
-                      <button className="btn btn-sm btn-danger" onClick={() => handleEliminar(c.id)}>
+                      <button
+                        className="btn btn-sm btn-danger"
+                        onClick={() => handleEliminar(c._id)}
+                      >
                         Eliminar
                       </button>
                     </td>
