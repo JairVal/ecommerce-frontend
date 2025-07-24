@@ -17,7 +17,7 @@ export default function CategoriasPage() {
 
   // Cargar categorías
   const cargarCategorias = () => {
-    fetch("http://localhost:3104/categorias")
+    fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz")
       .then((res) => res.json())
       .then((data) => setCategorias(data));
   };
@@ -45,7 +45,7 @@ export default function CategoriasPage() {
     }
     try {
       const res = await fetch(
-        "http://localhost:3104/categorias" + (editando ? `/${form.id}` : ""),
+        "https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz" + (editando ? `/${form.id}` : ""),
         {
           method: editando ? "PATCH" : "POST",
           headers: { "Content-Type": "application/json" },
@@ -91,7 +91,8 @@ export default function CategoriasPage() {
     });
     if (!confirm.isConfirmed) return;
     try {
-      const res = await fetch(`http://localhost:3104/categorias/${id}`, {
+      const res = await fetch(`https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz
+/${id}`, {
         method: "DELETE",
       });
       if (!res.ok) throw new Error("Error al eliminar categoría");

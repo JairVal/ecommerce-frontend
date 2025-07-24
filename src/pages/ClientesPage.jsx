@@ -17,7 +17,7 @@ export default function ClientesPage() {
 
   // Cargar clientes
   const cargarClientes = () => {
-    fetch("http://localhost:3104/clientes")
+    fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz")
       .then(res => res.json())
       .then(data => setClientes(data));
   };
@@ -45,7 +45,7 @@ export default function ClientesPage() {
     }
     try {
       const res = await fetch(
-        `http://localhost:3104/clientes` + (editando && form.id ? `/${form.id}` : ""),
+        `https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz` + (editando && form.id ? `/${form.id}` : ""),
         {
           method: editando ? "PATCH" : "POST",
           headers: { "Content-Type": "application/json" },
@@ -98,7 +98,7 @@ export default function ClientesPage() {
     if (!confirm.isConfirmed) return;
 
     try {
-      const res = await fetch(`http://localhost:3104/clientes/${id}`, { method: "DELETE" });
+      const res = await fetch(`https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error("Error al eliminar cliente");
       Swal.fire({
         icon: "success",

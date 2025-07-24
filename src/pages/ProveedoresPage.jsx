@@ -17,7 +17,7 @@ export default function ProveedoresPage() {
 
   // Cargar proveedores
   const cargarProveedores = () => {
-    fetch("http://localhost:3104/proveedor")
+    fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz")
       .then(res => res.json())
       .then(data => setProveedores(data));
   };

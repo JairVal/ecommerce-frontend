@@ -17,7 +17,7 @@ export default function UsuariosPage() {
 
   // Obtener usuarios
   const cargarUsuarios = () => {
-    fetch("http://localhost:3104/usuarios")
+    fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz")
       .then((res) => res.json())
       .then((data) => setUsuarios(data));
   };
@@ -45,7 +45,7 @@ export default function UsuariosPage() {
     }
     try {
       const res = await fetch(
-        "http://localhost:3104/usuarios" + (editando ? `/${form.id}` : ""),
+        "https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz" + (editando ? `/${form.id}` : ""),
         {
           method: editando ? "PATCH" : "POST",
           headers: { "Content-Type": "application/json" },
@@ -92,7 +92,7 @@ export default function UsuariosPage() {
     if (!confirm.isConfirmed) return;
 
     try {
-      const res = await fetch(`http://localhost:3104/usuarios/${id}`, { method: "DELETE" });
+      const res = await fetch(`https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error("Error al eliminar usuario");
       Swal.fire({
         icon: "success",

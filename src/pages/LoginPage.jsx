@@ -13,7 +13,7 @@ export default function LoginPage() {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:3104/auth/login", {
+      const res = await fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),

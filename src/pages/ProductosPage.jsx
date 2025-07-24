@@ -21,19 +21,19 @@ export default function ProductosPage() {
   const [editando, setEditando] = useState(false);
 
   const cargarProductos = () => {
-    fetch("http://localhost:3104/productos")
+    fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz")
       .then(res => res.json())
       .then(data => setProductos(data));
   };
 
   const cargarCategorias = () => {
-    fetch("http://localhost:3104/categorias")
+    fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz")
       .then(res => res.json())
       .then(data => setCategorias(data));
   };
 
   const cargarProveedores = () => {
-    fetch("http://localhost:3104/proveedor")
+    fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz")
       .then(res => res.json())
       .then(data => setProveedores(data));
   };
@@ -67,7 +67,7 @@ export default function ProductosPage() {
     }
     try {
       const res = await fetch(
-        "http://localhost:3104/productos" + (editando ? `/${form.id}` : ""),
+        "https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz" + (editando ? `/${form.id}` : ""),
         {
           method: editando ? "PATCH" : "POST",
           headers: { "Content-Type": "application/json" },
@@ -116,7 +116,8 @@ export default function ProductosPage() {
     if (!confirm.isConfirmed) return;
 
     try {
-      const res = await fetch(`http://localhost:3104/productos/${id}`, { method: "DELETE" });
+      const res = await fetch(`https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz
+/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error("Error al eliminar producto");
       Swal.fire({
         icon: "success",

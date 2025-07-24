@@ -7,7 +7,7 @@ export default function TiendaPage() {
   const [productos, setProductos] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3104/productos")
+    fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz")
       .then((res) => res.json())
       .then((data) => setProductos(data))
       .catch((err) => console.error("Error al cargar productos:", err));

@@ -14,15 +14,15 @@ export default function VentasPage() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:3104/ventas")
+    fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz")
       .then(res => res.json())
       .then(data => setVentas(data));
 
-    fetch("http://localhost:3104/clientes")
+    fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz")
       .then(res => res.json())
       .then(data => setClientes(data));
 
-    fetch("http://localhost:3104/productos")
+    fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz")
       .then(res => res.json())
       .then(data => setProductos(data));
   }, []);
@@ -85,7 +85,7 @@ export default function VentasPage() {
       };
 
 
-      const res = await fetch("http://localhost:3104/ventas", {
+      const res = await fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(ventaData)
@@ -99,7 +99,7 @@ export default function VentasPage() {
       });
       setIdCliente("");
       setDetalle([{ ...initialDetalle }]);
-      fetch("http://localhost:3104/ventas")
+      fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz")
         .then(res => res.json())
         .then(data => setVentas(data));
     } catch (err) {
@@ -127,7 +127,8 @@ export default function VentasPage() {
     });
     if (!confirm.isConfirmed) return;
     try {
-      const res = await fetch(`http://localhost:3104/ventas/${id}`, { method: "DELETE" });
+      const res = await fetch(`https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz
+/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error("No se pudo eliminar la venta");
       Swal.fire({
         icon: "success",
