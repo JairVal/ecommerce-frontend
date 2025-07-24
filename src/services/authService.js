@@ -1,5 +1,5 @@
 export async function login(email, password) {
-  const response = await fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz", {
+  const response = await fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz/auth/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),

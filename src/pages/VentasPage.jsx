@@ -14,15 +14,15 @@ export default function VentasPage() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz")
+    fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz/ventas")
       .then(res => res.json())
       .then(data => setVentas(data));
 
-    fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz")
+    fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz/clientes")
       .then(res => res.json())
       .then(data => setClientes(data));
 
-    fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz")
+    fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz/productos")
       .then(res => res.json())
       .then(data => setProductos(data));
   }, []);
@@ -85,7 +85,7 @@ export default function VentasPage() {
       };
 
 
-      const res = await fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz", {
+      const res = await fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz/ventas", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(ventaData)
@@ -99,7 +99,7 @@ export default function VentasPage() {
       });
       setIdCliente("");
       setDetalle([{ ...initialDetalle }]);
-      fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz")
+      fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz/ventas")
         .then(res => res.json())
         .then(data => setVentas(data));
     } catch (err) {
@@ -127,7 +127,7 @@ export default function VentasPage() {
     });
     if (!confirm.isConfirmed) return;
     try {
-      const res = await fetch(`https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz
+      const res = await fetch(`https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz/ventas
 /${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error("No se pudo eliminar la venta");
       Swal.fire({

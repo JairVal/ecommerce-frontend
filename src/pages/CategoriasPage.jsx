@@ -17,7 +17,7 @@ export default function CategoriasPage() {
 
   // Cargar categorías
   const cargarCategorias = () => {
-    fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz")
+    fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz/categorias")
       .then((res) => res.json())
       .then((data) => setCategorias(data));
   };
@@ -45,7 +45,7 @@ export default function CategoriasPage() {
     }
     try {
       const res = await fetch(
-        "https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz" + (editando ? `/${form.id}` : ""),
+        "https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz/categorias" + (editando ? `/${form.id}` : ""),
         {
           method: editando ? "PATCH" : "POST",
           headers: { "Content-Type": "application/json" },
@@ -91,7 +91,7 @@ export default function CategoriasPage() {
     });
     if (!confirm.isConfirmed) return;
     try {
-      const res = await fetch(`https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz
+      const res = await fetch(`https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz/categorias
 /${id}`, {
         method: "DELETE",
       });

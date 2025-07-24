@@ -17,7 +17,7 @@ export default function ProveedoresPage() {
 
   // Cargar proveedores
   const cargarProveedores = () => {
-    fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz")
+    fetch("https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz/proveedor")
       .then(res => res.json())
       .then(data => setProveedores(data));
   };
@@ -45,7 +45,7 @@ export default function ProveedoresPage() {
     }
     try {
       const res = await fetch(
-        "https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz/" + (editando ? `/${form.id}` : ""),
+        "https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz/proveedor" + (editando ? `/${form.id}` : ""),
         {
           method: editando ? "PATCH" : "POST",
           headers: { "Content-Type": "application/json" },
@@ -92,7 +92,7 @@ export default function ProveedoresPage() {
     if (!confirm.isConfirmed) return;
 
     try {
-      const res = await fetch(`https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz//${id}`, { method: "DELETE" });
+      const res = await fetch(`https://nestjs-ecommerce-valdivieso-backend-api.desarrollo-software.xyz/proveedor/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error("Error al eliminar proveedor");
       Swal.fire({
         icon: "success",
